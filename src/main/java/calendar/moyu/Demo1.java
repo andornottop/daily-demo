@@ -24,7 +24,7 @@ public class Demo1 {
         String chunjie = "2023-01-22 00:00:00";
         String qingm = "2023-04-05 00:00:00";
         String laod = "2023-05-01 00:00:00";
-        String duanw = "2022-06-03 00:00:00";
+        String duanw = "2023-06-22 00:00:00";
         String zhongq = "2022-09-10 00:00:00";
         String guoq = "2022-10-01 00:00:00";
         System.out.println("【摸鱼办】提醒您："+todays+"好，摸鱼人！工作再累一定不要忘记摸鱼哦！有事没事起身去茶水间，抽烟室，去走廊溜达溜达，别老在工位坐着。钱是老板的,但命是自己的。\n" +
@@ -34,13 +34,13 @@ public class Demo1 {
                 "距离6点下班还有:" + getTimeDeffer(now, xiaban2) + "\n" +
                 "距离6点半下班还有:" + getTimeDeffer(now, xiaban3) + "\n" +
                 "距离周末还有:" + getDayDeffer(now, weekend) + "\n" +
-                "距离端午节还有:" + getDayDeffer(now, duanw) + "\n" +
                 "距离中秋节还有:" + getDayDeffer(now, zhongq) + "\n" +
                 "距离国庆节还有:" + getDayDeffer(now, guoq) + "\n" +
                 "距离元旦还有:" + getDayDeffer(now, yuandan) + "\n" +
                 "距离春节还有:" + getDayDeffer(now, chunjie) + "\n" +
                 "距离清明节还有:" + getDayDeffer(now, qingm) + "\n" +
                 "距离劳动节还有:" + getDayDeffer(now, laod) + "\n" +
+                "距离端午节还有:" + getDayDeffer(now, duanw) + "\n" +
                 "\n" +
                 "认认真真上班，这根本就不叫赚钱，那是用劳动换取报酬。只有偷懒，在上班的时候摸鱼划水，你才是从老板手里赚到了钱。\n" +
                 "\n" +
