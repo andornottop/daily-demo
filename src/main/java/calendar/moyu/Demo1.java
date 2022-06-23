@@ -19,7 +19,8 @@ public class Demo1 {
         String xiaban1 = today + " 17:30:00";
         String xiaban2 = today + " 18:00:00";
         String xiaban3 = today + " 18:30:00";
-        String weekend = getWeekend();
+        String saturday = getWeekend(3);
+        String sunday = getWeekend(4);
         String yuandan = "2023-01-01 00:00:00";
         String chunjie = "2023-01-22 00:00:00";
         String qingm = "2023-04-05 00:00:00";
@@ -33,7 +34,8 @@ public class Demo1 {
                 "距离5点半下班还有:" + getTimeDeffer(now, xiaban1) + "\n" +
                 "距离6点下班还有:" + getTimeDeffer(now, xiaban2) + "\n" +
                 "距离6点半下班还有:" + getTimeDeffer(now, xiaban3) + "\n" +
-                "距离周末还有:" + getDayDeffer(now, weekend) + "\n" +
+                "距离周六还有:" + getTimeDeffer(now, saturday) + "\n" +
+                "距离周日还有:" + getTimeDeffer(now, sunday) + "\n" +
                 "距离中秋节还有:" + getDayDeffer(now, zhongq) + "\n" +
                 "距离国庆节还有:" + getDayDeffer(now, guoq) + "\n" +
                 "距离元旦还有:" + getDayDeffer(now, yuandan) + "\n" +
@@ -107,7 +109,7 @@ public class Demo1 {
      * @param
      * @return
      */
-    public static String getWeekend() {
+    public static String getWeekend(int i) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Calendar cal = Calendar.getInstance();
         //设置一个星期的第一天，按中国的习惯一个星期的第一天是星期一
@@ -125,7 +127,7 @@ public class Demo1 {
 //    System.out.println("所在周星期一的日期：" + weekBegin);
 
 
-        cal.add(Calendar.DATE, 3 + cal.getFirstDayOfWeek());
+        cal.add(Calendar.DATE, i + cal.getFirstDayOfWeek());
         Date sundayDate = cal.getTime();
         String weekEnd = sdf.format(sundayDate) + " 00:00:00";
 //    System.out.println("所在周星期六的日期：" + weekEnd);
