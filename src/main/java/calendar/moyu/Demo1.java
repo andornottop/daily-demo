@@ -2,8 +2,7 @@ package calendar.moyu;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.*;
 
 public class Demo1 {
     public static void main(String[] args) {
@@ -14,6 +13,7 @@ public class Demo1 {
         String now = sdf_time.format(new Date());
         String today = sdf_day.format(new Date());
         String todays = sdf_today.format(new Date());
+        Map<String, String> payday = getPayday();
 
         String xiaban = today + " 17:00:00";
         String xiaban1 = today + " 17:30:00";
@@ -36,6 +36,9 @@ public class Demo1 {
                 "距离6点半下班还有:" + getTimeDeffer(now, xiaban3) + "\n" +
                 "距离周六还有:" + getTimeDeffer(now, saturday) + "\n" +
                 "距离周日还有:" + getTimeDeffer(now, sunday) + "\n" +
+                "距离10号发工资还有:" + getDayDeffer(now, payday.get("payday10")) + "\n" +
+                "距离15号发工资还有:" + getDayDeffer(now, payday.get("payday15")) + "\n" +
+                "距离20号发工资还有:" + getDayDeffer(now, payday.get("payday20")) + "\n" +
                 "距离中秋节还有:" + getDayDeffer(now, zhongq) + "\n" +
                 "距离国庆节还有:" + getDayDeffer(now, guoq) + "\n" +
                 "距离元旦还有:" + getDayDeffer(now, yuandan) + "\n" +
@@ -132,5 +135,37 @@ public class Demo1 {
         String weekEnd = sdf.format(sundayDate) + " 00:00:00";
 //    System.out.println("所在周星期六的日期：" + weekEnd);
         return weekEnd;
+    }
+
+    /**
+     * 发薪日
+     * @return
+     */
+    public static Map<String,String> getPayday(){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+        Map<String,String> map = new HashMap<>();
+        Calendar payday10 = Calendar.getInstance();
+        Calendar payday15 = Calendar.getInstance();
+        Calendar payday20 = Calendar.getInstance();
+
+        if (payday10.get(Calendar.DAY_OF_MONTH) >= 10) {
+            payday10.add(Calendar.MONTH, 1);
+        }
+        if (payday15.get(Calendar.DAY_OF_MONTH) >= 15) {
+            payday15.add(Calendar.MONTH, 1);
+        }
+        if (payday20.get(Calendar.DAY_OF_MONTH) >= 20) {
+            payday20.add(Calendar.MONTH, 1);
+        }
+        payday10.set(Calendar.DAY_OF_MONTH, 10);
+        payday15.set(Calendar.DAY_OF_MONTH, 15);
+        payday20.set(Calendar.DAY_OF_MONTH, 20);
+
+        map.put("payday10",sdf.format(payday10.getTime()));
+        map.put("payday15",sdf.format(payday15.getTime()));
+        map.put("payday20",sdf.format(payday20.getTime()));
+
+        return map;
     }
 }
