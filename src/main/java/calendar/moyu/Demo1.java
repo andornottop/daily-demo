@@ -28,7 +28,7 @@ public class Demo1 {
         String duanw = "2023-06-22 00:00:00";
         String zhongq = "2022-09-10 00:00:00";
         String guoq = "2022-10-01 00:00:00";
-        System.out.println("【摸鱼办】提醒您："+todays+"好，摸鱼人！工作再累一定不要忘记摸鱼哦！有事没事起身去茶水间，抽烟室，去走廊溜达溜达，别老在工位坐着。钱是老板的,但命是自己的。\n" +
+        System.out.println("【摸鱼办】提醒您：" + todays + "好，摸鱼人！工作再累一定不要忘记摸鱼哦！有事没事起身去茶水间，抽烟室，去走廊溜达溜达，别老在工位坐着。钱是老板的,但命是自己的。\n" +
                 "\n" +
                 "距离5点下班还有:" + getTimeDeffer(now, xiaban) + "\n" +
                 "距离5点半下班还有:" + getTimeDeffer(now, xiaban1) + "\n" +
@@ -52,10 +52,11 @@ public class Demo1 {
                 "最后，祝愿天下所有摸鱼人，都能愉快的度过每一天!");
     }
 
+
     /**
      * 获取时间差
-     *
-     * @param time1 time2 需要计算的时间
+     * @param time1
+     * @param time2
      * @return
      */
     public static String getTimeDeffer(String time1, String time2) {
@@ -82,6 +83,7 @@ public class Demo1 {
 
     /**
      * 获取天数
+     *
      * @param time1
      * @param time2
      * @return
@@ -107,12 +109,13 @@ public class Demo1 {
 
     /**
      * 获取天数
+     *
      * @param time1
      * @param time2
      * @param offset
      * @return
      */
-    public static String getDayDeffer(String time1, String time2,long offset) {
+    public static String getDayDeffer(String time1, String time2, long offset) {
         String result = "";
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         if (time1 != null && time2 != null && time1.length() != 0 && time2.length() != 0) {
@@ -164,9 +167,10 @@ public class Demo1 {
 
     /**
      * 发薪日
+     *
      * @return
      */
-    public static String getPayday(){
+    public static String getPayday() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
         Calendar payday = Calendar.getInstance();
