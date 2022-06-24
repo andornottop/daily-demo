@@ -13,7 +13,7 @@ public class Demo1 {
         String now = sdf_time.format(new Date());
         String today = sdf_day.format(new Date());
         String todays = sdf_today.format(new Date());
-        Map<String, String> payday = getPayday();
+        String payday = getPayday();
 
         String xiaban = today + " 17:00:00";
         String xiaban1 = today + " 17:30:00";
@@ -36,9 +36,9 @@ public class Demo1 {
                 "距离6点半下班还有:" + getTimeDeffer(now, xiaban3) + "\n" +
                 "距离周六还有:" + getTimeDeffer(now, saturday) + "\n" +
                 "距离周日还有:" + getTimeDeffer(now, sunday) + "\n" +
-                "距离10号发工资还有:" + getDayDeffer(now, payday.get("payday10")) + "\n" +
-                "距离15号发工资还有:" + getDayDeffer(now, payday.get("payday15")) + "\n" +
-                "距离20号发工资还有:" + getDayDeffer(now, payday.get("payday20")) + "\n" +
+                "距离10号发工资还有:" + getDayDeffer(now, payday) + "\n" +
+                "距离15号发工资还有:" + getDayDeffer(now, payday, 5L) + "\n" +
+                "距离20号发工资还有:" + getDayDeffer(now, payday, 10L) + "\n" +
                 "距离中秋节还有:" + getDayDeffer(now, zhongq) + "\n" +
                 "距离国庆节还有:" + getDayDeffer(now, guoq) + "\n" +
                 "距离元旦还有:" + getDayDeffer(now, yuandan) + "\n" +
@@ -82,8 +82,8 @@ public class Demo1 {
 
     /**
      * 获取天数
-     *
-     * @param time1 time2 需要计算的天数
+     * @param time1
+     * @param time2
      * @return
      */
     public static String getDayDeffer(String time1, String time2) {
@@ -105,6 +105,31 @@ public class Demo1 {
         return result;
     }
 
+    /**
+     * 获取天数
+     * @param time1
+     * @param time2
+     * @param offset
+     * @return
+     */
+    public static String getDayDeffer(String time1, String time2,long offset) {
+        String result = "";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        if (time1 != null && time2 != null && time1.length() != 0 && time2.length() != 0) {
+
+            try {
+                long dt1 = sdf.parse(time1).getTime();
+                long dt2 = sdf.parse(time2).getTime();
+                long dc = Math.abs(dt2 - dt1);
+                long seconds = dc / 1000;
+                long date = seconds / (24 * 60 * 60);     //相差的天数
+                return (date == 0 ? "0天" : (date + offset + "天"));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
+    }
 
     /**
      * 获取最近的下一次周六
@@ -141,31 +166,16 @@ public class Demo1 {
      * 发薪日
      * @return
      */
-    public static Map<String,String> getPayday(){
+    public static String getPayday(){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-        Map<String,String> map = new HashMap<>();
-        Calendar payday10 = Calendar.getInstance();
-        Calendar payday15 = Calendar.getInstance();
-        Calendar payday20 = Calendar.getInstance();
+        Calendar payday = Calendar.getInstance();
 
-        if (payday10.get(Calendar.DAY_OF_MONTH) >= 10) {
-            payday10.add(Calendar.MONTH, 1);
+        if (payday.get(Calendar.DAY_OF_MONTH) >= 10) {
+            payday.add(Calendar.MONTH, 1);
         }
-        if (payday15.get(Calendar.DAY_OF_MONTH) >= 15) {
-            payday15.add(Calendar.MONTH, 1);
-        }
-        if (payday20.get(Calendar.DAY_OF_MONTH) >= 20) {
-            payday20.add(Calendar.MONTH, 1);
-        }
-        payday10.set(Calendar.DAY_OF_MONTH, 10);
-        payday15.set(Calendar.DAY_OF_MONTH, 15);
-        payday20.set(Calendar.DAY_OF_MONTH, 20);
+        payday.set(Calendar.DAY_OF_MONTH, 10);
 
-        map.put("payday10",sdf.format(payday10.getTime()));
-        map.put("payday15",sdf.format(payday15.getTime()));
-        map.put("payday20",sdf.format(payday20.getTime()));
-
-        return map;
+        return sdf.format(payday.getTime());
     }
 }
