@@ -6,10 +6,10 @@ import java.util.Scanner;
 public class Lottery {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        System.out.println("ÇëÊäÈë¿ª½±µÄÊıÁ¿£º");
+        System.out.println("è¯·è¾“å…¥å¼€å¥–çš„æ•°é‡ï¼š");
         int k = in.nextInt();
 
-        System.out.println("ÇëÊäÈë¿ª½±µÄ×î´óÖµ£º");
+        System.out.println("è¯·è¾“å…¥å¼€å¥–çš„æœ€å¤§å€¼ï¼š");
         int n = in.nextInt();
 
         int[] numbers = new int[n];
@@ -25,7 +25,7 @@ public class Lottery {
             n--;
         }
         Arrays.sort(result);
-        System.out.println("¿ª½±½á¹ûÎª£º");
+        System.out.println("å¼€å¥–ç»“æœä¸ºï¼š");
         for (int r : result) {
             System.out.println(r);
         }

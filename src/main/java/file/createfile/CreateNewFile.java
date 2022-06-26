@@ -10,9 +10,9 @@ public class CreateNewFile {
             for (int i = 10; i < 48; i++) {
                 File file = new File("D:\\Blog\\source\\_posts\\zuo_"+ i +".md");
                 if(file.createNewFile())
-                    System.out.println("ÎÄ¼þ"+ i +"´´½¨³É¹¦£¡");
+                    System.out.println("æ–‡ä»¶"+ i +"åˆ›å»ºæˆåŠŸï¼");
                 else
-                    System.out.println("³ö´íÁË£¬¸ÃÎÄ¼þÒÑ¾­´æÔÚ¡£");
+                    System.out.println("å‡ºé”™äº†ï¼Œè¯¥æ–‡ä»¶å·²ç»å­˜åœ¨ã€‚");
             }
 
         }

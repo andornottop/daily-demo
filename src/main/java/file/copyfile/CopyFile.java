@@ -7,33 +7,33 @@ import java.io.IOException;
 
 public class CopyFile {
     public static void main(String[] args) throws IOException {
-//╩Ях║р╙╦╢жф╣днд╪Ч
+//Х▌╥Е▐√Х╕│Е╓█Е┬╤Г └Ф√┤Д╩╤
         File oldfile = new File("D:\\Blog\\source\\_posts\\zuo_9.md");
-//нд╪ЧйДхКаВё╛сцсз╤ах║р╙╦╢жф╣днд╪Ч
-//р╙иЗЁи╣дпбнд╪Чё╗ж╦╤╗б╥╬╤хГ╧Шц╩сптР╢╢╫╗ё╘
+//Ф√┤Д╩╤Х╬⌠Е┘╔Ф╣│О╪▄Г■╗Д╨▌Х╞╩Е▐√Х╕│Е╓█Е┬╤Г └Ф√┤Д╩╤
+//Х╕│Г■÷Ф┬░Г └Ф√╟Ф√┤Д╩╤О╪┬Ф▄┤Е╝ Х╥╞Е╬└Е╕┌Ф·°Ф╡║Ф°┴Е┬≥Е┬⌡Е╩╨О╪┴
         for (int i = 10; i < 48; i++) {
             FileInputStream fileInputStream = new FileInputStream(oldfile);
 
             File newfile = new File("D:\\Blog\\source\\_posts\\zuo_" + i + ".md");
-//╩Ях║╦╦д©б╪
+//Х▌╥Е▐√Г┬╤Г⌡╝Е╫∙
             File fileParent = newfile.getParentFile();
             System.out.println(fileParent);
-//еп╤ойг╥Я╢Фтз
+//Е┬╓Ф√╜Ф≤╞Е░╕Е╜≤Е°╗
             if (!fileParent.exists()) {
-// ╢╢╫╗╦╦д©б╪нд╪Ч╪п
+// Е┬⌡Е╩╨Г┬╤Г⌡╝Е╫∙Ф√┤Д╩╤Е╓╧
                 fileParent.mkdirs();
             }
-//еп╤онд╪Чйг╥Я╢Фтз
+//Е┬╓Ф√╜Ф√┤Д╩╤Ф≤╞Е░╕Е╜≤Е°╗
             if (!newfile.exists()) {
-//╢╢╫╗нд╪Ч
+//Е┬⌡Е╩╨Ф√┤Д╩╤
                 newfile.createNewFile();
             }
 
-//пбнд╪ЧйДЁЖаВ
+//Ф√╟Ф√┤Д╩╤Х╬⌠Е┤╨Ф╣│
             FileOutputStream fileOutputStream = new FileOutputStream(newfile);
             byte[] buffer = new byte[1024];
             int len;
-//╫╚нд╪ЧаВпео╒╤ах║нд╪Ч╩╨╢ФгЬё╛хГ╧Ш╤ах║╫А╧Ш╡╩н╙-1╬м╢З╠Мнд╪Чц╩сп╤ах║мЙ╠оё╛╥╢ж╝ря╬╜╤ах║мЙ╠о
+//Е╟├Ф√┤Д╩╤Ф╣│Д©║Ф│╞Х╞╩Е▐√Ф√┤Д╩╤Г╪⌠Е╜≤Е▄╨О╪▄Е╕┌Ф·°Х╞╩Е▐√Г╩⌠Ф·°Д╦█Д╦╨-1Е╟╠Д╩ёХ║╗Ф√┤Д╩╤Ф╡║Ф°┴Х╞╩Е▐√Е╝▄Ф╞∙О╪▄Е▐█Д╧▀Е╥╡Г╩▐Х╞╩Е▐√Е╝▄Ф╞∙
             while ((len = fileInputStream.read(buffer)) != -1) {
                 fileOutputStream.write(buffer, 0, len);
                 fileOutputStream.flush();

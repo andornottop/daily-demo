@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /***
- * JSONÊý×é×Ö·û
- * ´®-->List
+ * JSONæ•°ç»„å­—ç¬¦
+ * ä¸²-->List
  */
 public class JsonToList {
 

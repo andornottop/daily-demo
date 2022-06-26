@@ -9,7 +9,7 @@ public class Demo1 {
 
         SimpleDateFormat sdf_time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         SimpleDateFormat sdf_day = new SimpleDateFormat("yyyy-MM-dd");
-        SimpleDateFormat sdf_today = new SimpleDateFormat("yyyyÄêMÔÂddÈÕa");
+        SimpleDateFormat sdf_today = new SimpleDateFormat("yyyyå¹´Mæœˆddæ—¥a");
         String now = sdf_time.format(new Date());
         String today = sdf_day.format(new Date());
         String todays = sdf_today.format(new Date());
@@ -28,33 +28,33 @@ public class Demo1 {
         String duanw = "2023-06-22 00:00:00";
         String zhongq = "2022-09-10 00:00:00";
         String guoq = "2022-10-01 00:00:00";
-        System.out.println("¡¾ÃşÓã°ì¡¿ÌáĞÑÄú£º" + todays + "ºÃ£¬ÃşÓãÈË£¡¹¤×÷ÔÙÀÛÒ»¶¨²»ÒªÍü¼ÇÃşÓãÅ¶£¡ÓĞÊÂÃ»ÊÂÆğÉíÈ¥²èË®¼ä£¬³éÑÌÊÒ£¬È¥×ßÀÈÁï´ïÁï´ï£¬±ğÀÏÔÚ¹¤Î»×ø×Å¡£Ç®ÊÇÀÏ°åµÄ,µ«ÃüÊÇ×Ô¼ºµÄ¡£\n" +
+        System.out.println("ã€æ‘¸é±¼åŠã€‘æé†’æ‚¨ï¼š" + todays + "å¥½ï¼Œæ‘¸é±¼äººï¼å·¥ä½œå†ç´¯ä¸€å®šä¸è¦å¿˜è®°æ‘¸é±¼å“¦ï¼æœ‰äº‹æ²¡äº‹èµ·èº«å»èŒ¶æ°´é—´ï¼ŒæŠ½çƒŸå®¤ï¼Œå»èµ°å»Šæºœè¾¾æºœè¾¾ï¼Œåˆ«è€åœ¨å·¥ä½åç€ã€‚é’±æ˜¯è€æ¿çš„,ä½†å‘½æ˜¯è‡ªå·±çš„ã€‚\n" +
                 "\n" +
-                "¾àÀë5µãÏÂ°à»¹ÓĞ:" + getTimeDeffer(now, xiaban) + "\n" +
-                "¾àÀë5µã°ëÏÂ°à»¹ÓĞ:" + getTimeDeffer(now, xiaban1) + "\n" +
-                "¾àÀë6µãÏÂ°à»¹ÓĞ:" + getTimeDeffer(now, xiaban2) + "\n" +
-                "¾àÀë6µã°ëÏÂ°à»¹ÓĞ:" + getTimeDeffer(now, xiaban3) + "\n" +
-                "¾àÀëÖÜÁù»¹ÓĞ:" + getTimeDeffer(now, saturday) + "\n" +
-                "¾àÀëÖÜÈÕ»¹ÓĞ:" + getTimeDeffer(now, sunday) + "\n" +
-                "¾àÀë10ºÅ·¢¹¤×Ê»¹ÓĞ:" + getDayDeffer(now, payday) + "\n" +
-                "¾àÀë15ºÅ·¢¹¤×Ê»¹ÓĞ:" + getDayDeffer(now, payday, 5L) + "\n" +
-                "¾àÀë20ºÅ·¢¹¤×Ê»¹ÓĞ:" + getDayDeffer(now, payday, 10L) + "\n" +
-                "¾àÀëÖĞÇï½Ú»¹ÓĞ:" + getDayDeffer(now, zhongq) + "\n" +
-                "¾àÀë¹úÇì½Ú»¹ÓĞ:" + getDayDeffer(now, guoq) + "\n" +
-                "¾àÀëÔªµ©»¹ÓĞ:" + getDayDeffer(now, yuandan) + "\n" +
-                "¾àÀë´º½Ú»¹ÓĞ:" + getDayDeffer(now, chunjie) + "\n" +
-                "¾àÀëÇåÃ÷½Ú»¹ÓĞ:" + getDayDeffer(now, qingm) + "\n" +
-                "¾àÀëÀÍ¶¯½Ú»¹ÓĞ:" + getDayDeffer(now, laod) + "\n" +
-                "¾àÀë¶ËÎç½Ú»¹ÓĞ:" + getDayDeffer(now, duanw) + "\n" +
+                "è·ç¦»5ç‚¹ä¸‹ç­è¿˜æœ‰:" + getTimeDeffer(now, xiaban) + "\n" +
+                "è·ç¦»5ç‚¹åŠä¸‹ç­è¿˜æœ‰:" + getTimeDeffer(now, xiaban1) + "\n" +
+                "è·ç¦»6ç‚¹ä¸‹ç­è¿˜æœ‰:" + getTimeDeffer(now, xiaban2) + "\n" +
+                "è·ç¦»6ç‚¹åŠä¸‹ç­è¿˜æœ‰:" + getTimeDeffer(now, xiaban3) + "\n" +
+                "è·ç¦»å‘¨å…­è¿˜æœ‰:" + getTimeDeffer(now, saturday) + "\n" +
+                "è·ç¦»å‘¨æ—¥è¿˜æœ‰:" + getTimeDeffer(now, sunday) + "\n" +
+                "è·ç¦»10å·å‘å·¥èµ„è¿˜æœ‰:" + getDayDeffer(now, payday) + "\n" +
+                "è·ç¦»15å·å‘å·¥èµ„è¿˜æœ‰:" + getDayDeffer(now, payday, 5L) + "\n" +
+                "è·ç¦»20å·å‘å·¥èµ„è¿˜æœ‰:" + getDayDeffer(now, payday, 10L) + "\n" +
+                "è·ç¦»ä¸­ç§‹èŠ‚è¿˜æœ‰:" + getDayDeffer(now, zhongq) + "\n" +
+                "è·ç¦»å›½åº†èŠ‚è¿˜æœ‰:" + getDayDeffer(now, guoq) + "\n" +
+                "è·ç¦»å…ƒæ—¦è¿˜æœ‰:" + getDayDeffer(now, yuandan) + "\n" +
+                "è·ç¦»æ˜¥èŠ‚è¿˜æœ‰:" + getDayDeffer(now, chunjie) + "\n" +
+                "è·ç¦»æ¸…æ˜èŠ‚è¿˜æœ‰:" + getDayDeffer(now, qingm) + "\n" +
+                "è·ç¦»åŠ³åŠ¨èŠ‚è¿˜æœ‰:" + getDayDeffer(now, laod) + "\n" +
+                "è·ç¦»ç«¯åˆèŠ‚è¿˜æœ‰:" + getDayDeffer(now, duanw) + "\n" +
                 "\n" +
-                "ÈÏÈÏÕæÕæÉÏ°à£¬Õâ¸ù±¾¾Í²»½Ğ×¬Ç®£¬ÄÇÊÇÓÃÀÍ¶¯»»È¡±¨³ê¡£Ö»ÓĞÍµÀÁ£¬ÔÚÉÏ°àµÄÊ±ºòÃşÓã»®Ë®£¬Äã²ÅÊÇ´ÓÀÏ°åÊÖÀï×¬µ½ÁËÇ®¡£\n" +
+                "è®¤è®¤çœŸçœŸä¸Šç­ï¼Œè¿™æ ¹æœ¬å°±ä¸å«èµšé’±ï¼Œé‚£æ˜¯ç”¨åŠ³åŠ¨æ¢å–æŠ¥é…¬ã€‚åªæœ‰å·æ‡’ï¼Œåœ¨ä¸Šç­çš„æ—¶å€™æ‘¸é±¼åˆ’æ°´ï¼Œä½ æ‰æ˜¯ä»è€æ¿æ‰‹é‡Œèµšåˆ°äº†é’±ã€‚\n" +
                 "\n" +
-                "×îºó£¬×£Ô¸ÌìÏÂËùÓĞÃşÓãÈË£¬¶¼ÄÜÓä¿ìµÄ¶È¹ıÃ¿Ò»Ìì!");
+                "æœ€åï¼Œç¥æ„¿å¤©ä¸‹æ‰€æœ‰æ‘¸é±¼äººï¼Œéƒ½èƒ½æ„‰å¿«çš„åº¦è¿‡æ¯ä¸€å¤©!");
     }
 
 
     /**
-     * »ñÈ¡Ê±¼ä²î
+     * è·å–æ—¶é—´å·®
      * @param time1
      * @param time2
      * @return
@@ -69,11 +69,11 @@ public class Demo1 {
                 long dt2 = sdf.parse(time2).getTime();
                 long dc = Math.abs(dt2 - dt1);
                 long seconds = dc / 1000;
-                long date = seconds / (24 * 60 * 60);     //Ïà²îµÄÌìÊı
-                long hour = (seconds - date * 24 * 60 * 60) / (60 * 60);//Ïà²îµÄĞ¡Ê±Êı
-                long minut = (seconds - date * 24 * 60 * 60 - hour * 60 * 60) / (60);//Ïà²îµÄ·ÖÖÓÊı
-                long second = (seconds - date * 24 * 60 * 60 - hour * 60 * 60 - minut * 60);//Ïà²îµÄÃëÊı
-                return (date == 0 ? "" : (date + "Ìì")) + (hour == 0 ? "" : (hour + "Ğ¡Ê±")) + (minut == 0 ? "" : (minut + "·Ö")) + (second == 0 ? "" : (second + "Ãë"));
+                long date = seconds / (24 * 60 * 60);     //ç›¸å·®çš„å¤©æ•°
+                long hour = (seconds - date * 24 * 60 * 60) / (60 * 60);//ç›¸å·®çš„å°æ—¶æ•°
+                long minut = (seconds - date * 24 * 60 * 60 - hour * 60 * 60) / (60);//ç›¸å·®çš„åˆ†é’Ÿæ•°
+                long second = (seconds - date * 24 * 60 * 60 - hour * 60 * 60 - minut * 60);//ç›¸å·®çš„ç§’æ•°
+                return (date == 0 ? "" : (date + "å¤©")) + (hour == 0 ? "" : (hour + "å°æ—¶")) + (minut == 0 ? "" : (minut + "åˆ†")) + (second == 0 ? "" : (second + "ç§’"));
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -82,7 +82,7 @@ public class Demo1 {
     }
 
     /**
-     * »ñÈ¡ÌìÊı
+     * è·å–å¤©æ•°
      *
      * @param time1
      * @param time2
@@ -98,8 +98,8 @@ public class Demo1 {
                 long dt2 = sdf.parse(time2).getTime();
                 long dc = Math.abs(dt2 - dt1);
                 long seconds = dc / 1000;
-                long date = seconds / (24 * 60 * 60);     //Ïà²îµÄÌìÊı
-                return (date == 0 ? "0Ìì" : (date + "Ìì"));
+                long date = seconds / (24 * 60 * 60);     //ç›¸å·®çš„å¤©æ•°
+                return (date == 0 ? "0å¤©" : (date + "å¤©"));
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -108,7 +108,7 @@ public class Demo1 {
     }
 
     /**
-     * »ñÈ¡ÌìÊı
+     * è·å–å¤©æ•°
      *
      * @param time1
      * @param time2
@@ -125,8 +125,8 @@ public class Demo1 {
                 long dt2 = sdf.parse(time2).getTime();
                 long dc = Math.abs(dt2 - dt1);
                 long seconds = dc / 1000;
-                long date = seconds / (24 * 60 * 60);     //Ïà²îµÄÌìÊı
-                return (date == 0 ? "0Ìì" : (date + offset + "Ìì"));
+                long date = seconds / (24 * 60 * 60);     //ç›¸å·®çš„å¤©æ•°
+                return (date == 0 ? "0å¤©" : (date + offset + "å¤©"));
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -135,7 +135,7 @@ public class Demo1 {
     }
 
     /**
-     * »ñÈ¡×î½üµÄÏÂÒ»´ÎÖÜÁù
+     * è·å–æœ€è¿‘çš„ä¸‹ä¸€æ¬¡å‘¨å…­
      *
      * @param
      * @return
@@ -143,30 +143,30 @@ public class Demo1 {
     public static String getWeekend(int i) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Calendar cal = Calendar.getInstance();
-        //ÉèÖÃÒ»¸öĞÇÆÚµÄµÚÒ»Ìì£¬°´ÖĞ¹úµÄÏ°¹ßÒ»¸öĞÇÆÚµÄµÚÒ»ÌìÊÇĞÇÆÚÒ»
+        //è®¾ç½®ä¸€ä¸ªæ˜ŸæœŸçš„ç¬¬ä¸€å¤©ï¼ŒæŒ‰ä¸­å›½çš„ä¹ æƒ¯ä¸€ä¸ªæ˜ŸæœŸçš„ç¬¬ä¸€å¤©æ˜¯æ˜ŸæœŸä¸€
         cal.setFirstDayOfWeek(Calendar.MONDAY);
-        //»ñµÃµ±Ç°ÈÕÆÚÊÇÒ»¸öĞÇÆÚµÄµÚ¼¸Ìì
+        //è·å¾—å½“å‰æ—¥æœŸæ˜¯ä¸€ä¸ªæ˜ŸæœŸçš„ç¬¬å‡ å¤©
         int dayWeek = cal.get(Calendar.DAY_OF_WEEK);
         if (dayWeek == 1) {
             dayWeek = 8;
         }
 
-        // ¸ù¾İÈÕÀúµÄ¹æÔò£¬¸øµ±Ç°ÈÕÆÚ¼õÈ¥ĞÇÆÚ¼¸ÓëÒ»¸öĞÇÆÚµÚÒ»ÌìµÄ²îÖµ
+        // æ ¹æ®æ—¥å†çš„è§„åˆ™ï¼Œç»™å½“å‰æ—¥æœŸå‡å»æ˜ŸæœŸå‡ ä¸ä¸€ä¸ªæ˜ŸæœŸç¬¬ä¸€å¤©çš„å·®å€¼
         cal.add(Calendar.DATE, cal.getFirstDayOfWeek() - dayWeek);
         Date mondayDate = cal.getTime();
         String weekBegin = sdf.format(mondayDate);
-//    System.out.println("ËùÔÚÖÜĞÇÆÚÒ»µÄÈÕÆÚ£º" + weekBegin);
+//    System.out.println("æ‰€åœ¨å‘¨æ˜ŸæœŸä¸€çš„æ—¥æœŸï¼š" + weekBegin);
 
 
         cal.add(Calendar.DATE, i + cal.getFirstDayOfWeek());
         Date sundayDate = cal.getTime();
         String weekEnd = sdf.format(sundayDate) + " 00:00:00";
-//    System.out.println("ËùÔÚÖÜĞÇÆÚÁùµÄÈÕÆÚ£º" + weekEnd);
+//    System.out.println("æ‰€åœ¨å‘¨æ˜ŸæœŸå…­çš„æ—¥æœŸï¼š" + weekEnd);
         return weekEnd;
     }
 
     /**
-     * ·¢Ğ½ÈÕ
+     * å‘è–ªæ—¥
      *
      * @return
      */

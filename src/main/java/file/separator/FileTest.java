@@ -9,20 +9,20 @@ public class FileTest {
         String fileName = "photo.bmp";
         System.out.println("File.separator:" + File.separator);
         File testFile = new File("D:" + File.separator + "filepath" + File.separator + "test" + File.separator + fileName);
-        File fileParent = testFile.getParentFile();//·µ»ØµÄÊÇFileÀàĞÍ,¿ÉÒÔµ÷ÓÃexsit()µÈ·½·¨ 
-        String fileParentPath = testFile.getParent();//·µ»ØµÄÊÇStringÀàĞÍ
+        File fileParent = testFile.getParentFile();//è¿”å›çš„æ˜¯Fileç±»å‹,å¯ä»¥è°ƒç”¨exsit()ç­‰æ–¹æ³• 
+        String fileParentPath = testFile.getParent();//è¿”å›çš„æ˜¯Stringç±»å‹
         System.out.println("fileParent:" + fileParent);
         System.out.println("fileParentPath:" + fileParentPath);
         if (!fileParent.exists()) {
-            fileParent.mkdirs();// ÄÜ´´½¨¶à¼¶Ä¿Â¼
+            fileParent.mkdirs();// èƒ½åˆ›å»ºå¤šçº§ç›®å½•
         }
         if (!testFile.exists())
-            testFile.createNewFile();//ÓĞÂ·¾¶²ÅÄÜ´´½¨ÎÄ¼ş
+            testFile.createNewFile();//æœ‰è·¯å¾„æ‰èƒ½åˆ›å»ºæ–‡ä»¶
         System.out.println(testFile);
  
         String path = testFile.getPath();
-        String absolutePath = testFile.getAbsolutePath();//µÃµ½ÎÄ¼ş/ÎÄ¼ş¼ĞµÄ¾ø¶ÔÂ·¾¶
-        String getFileName = testFile.getName();//µÃµ½ÎÄ¼ş/ÎÄ¼ş¼ĞµÄÃû×Ö
+        String absolutePath = testFile.getAbsolutePath();//å¾—åˆ°æ–‡ä»¶/æ–‡ä»¶å¤¹çš„ç»å¯¹è·¯å¾„
+        String getFileName = testFile.getName();//å¾—åˆ°æ–‡ä»¶/æ–‡ä»¶å¤¹çš„åå­—
         System.out.println("path:"+path);
         System.out.println("absolutePath:"+absolutePath);
         System.out.println("getFileName:"+getFileName);

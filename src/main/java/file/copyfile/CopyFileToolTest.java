@@ -7,22 +7,22 @@ import java.io.IOException;
 
 public class CopyFileToolTest {
     public static void main(String[] args) throws IOException {
-//»ñÈ¡Òª¸´ÖÆµÄÎÄ¼ş
+//è·å–è¦å¤åˆ¶çš„æ–‡ä»¶
         File oldfile = new File("D:\\Blog\\source\\_posts\\zuo_9.md");
-//ÒªÉú³ÉµÄĞÂÎÄ¼ş£¨Ö¸¶¨Â·¾¶Èç¹ûÃ»ÓĞÔò´´½¨£©
+//è¦ç”Ÿæˆçš„æ–°æ–‡ä»¶ï¼ˆæŒ‡å®šè·¯å¾„å¦‚æœæ²¡æœ‰åˆ™åˆ›å»ºï¼‰
         for (int i = 10; i < 48; i++) {
             File newfile = new File("D:\\Blog\\source\\_posts\\zuo_" + i + ".md");
-//»ñÈ¡¸¸Ä¿Â¼
+//è·å–çˆ¶ç›®å½•
             File fileParent = newfile.getParentFile();
             System.out.println(newfile);
-//ÅĞ¶ÏÊÇ·ñ´æÔÚ
+//åˆ¤æ–­æ˜¯å¦å­˜åœ¨
             if (!fileParent.exists()) {
-// ´´½¨¸¸Ä¿Â¼ÎÄ¼ş¼Ğ
+// åˆ›å»ºçˆ¶ç›®å½•æ–‡ä»¶å¤¹
                 fileParent.mkdirs();
             }
-//ÅĞ¶ÏÎÄ¼şÊÇ·ñ´æÔÚ
+//åˆ¤æ–­æ–‡ä»¶æ˜¯å¦å­˜åœ¨
             if (!newfile.exists()) {
-//´´½¨ÎÄ¼ş
+//åˆ›å»ºæ–‡ä»¶
                 newfile.createNewFile();
             }
 

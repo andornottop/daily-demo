@@ -2,6 +2,6 @@ package jackson;
 
 public class Demo1 {
     public static void main(String[] args) {
-        System.out.println("²âÊÔ66666");
+        System.out.println("æµ‹è¯•66666");
     }
 }
