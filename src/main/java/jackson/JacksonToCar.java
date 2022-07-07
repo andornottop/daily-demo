@@ -12,8 +12,8 @@ public class JacksonToCar {
 
         ObjectMapper objectMapper = new ObjectMapper();
 
-        String carJson ="{ \"brand\" : \"Mercedes\", \"doors\" : null }";
-        objectMapper.configure(DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES, true);
+        String carJson ="{ \"brand\" : \"Mercedes\" }";
+        //objectMapper.configure(DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES, true);
         try {
 
             Car car = objectMapper.readValue(carJson, Car.class);
