@@ -28,6 +28,7 @@ public class Demo1 {
         String duanw = "2023-06-22 00:00:00";
         String zhongq = "2022-09-10 00:00:00";
         String guoq = "2022-10-01 00:00:00";
+        String runDay = "2022-09-15 00:00:00";
         System.out.println("【摸鱼办】提醒您：" + todays + "好，摸鱼人！工作再累一定不要忘记摸鱼哦！有事没事起身去茶水间，抽烟室，去走廊溜达溜达，别老在工位坐着。钱是老板的,但命是自己的。\n" +
                 "\n" +
                 "距离5点下班还有:" + getTimeDeffer(now, xiaban) + "\n" +
@@ -39,6 +40,7 @@ public class Demo1 {
                 "距离10号发工资还有:" + getDayDeffer(now, payday) + "\n" +
                 "距离15号发工资还有:" + getDayDeffer(now, payday, 5L) + "\n" +
                 "距离20号发工资还有:" + getDayDeffer(now, payday, 10L) + "\n" +
+                "距离9月15号跑路还有:" + getDayDeffer(now, runDay) + "\n" +
                 "距离中秋节还有:" + getDayDeffer(now, zhongq) + "\n" +
                 "距离国庆节还有:" + getDayDeffer(now, guoq) + "\n" +
                 "距离元旦还有:" + getDayDeffer(now, yuandan) + "\n" +
