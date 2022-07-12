@@ -13,7 +13,6 @@ public class Demo1 {
         String now = sdf_time.format(new Date());
         String today = sdf_day.format(new Date());
         String todays = sdf_today.format(new Date());
-        String payday = getPayday();
 
         String xiaban = today + " 17:00:00";
         String xiaban1 = today + " 17:30:00";
@@ -37,9 +36,9 @@ public class Demo1 {
                 "距离6点半下班还有:" + getTimeDeffer(now, xiaban3) + "\n" +
                 "距离周六还有:" + getTimeDeffer(now, saturday) + "\n" +
                 "距离周日还有:" + getTimeDeffer(now, sunday) + "\n" +
-                "距离10号发工资还有:" + getDayDeffer(now, payday) + "\n" +
-                "距离15号发工资还有:" + getDayDeffer(now, payday, 5L) + "\n" +
-                "距离20号发工资还有:" + getDayDeffer(now, payday, 10L) + "\n" +
+                "距离10号发工资还有:" + getDayDeffer(now, getPayday(10)) + "\n" +
+                "距离15号发工资还有:" + getDayDeffer(now, getPayday(15)) + "\n" +
+                "距离20号发工资还有:" + getDayDeffer(now, getPayday(20)) + "\n" +
                 "距离9月15号跑路还有:" + getDayDeffer(now, runDay) + "\n" +
                 "距离中秋节还有:" + getDayDeffer(now, zhongq) + "\n" +
                 "距离国庆节还有:" + getDayDeffer(now, guoq) + "\n" +
@@ -169,18 +168,18 @@ public class Demo1 {
 
     /**
      * 发薪日
-     *
+     * @param dayOfMonth
      * @return
      */
-    public static String getPayday() {
+    public static String getPayday(int dayOfMonth) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
         Calendar payday = Calendar.getInstance();
 
-        if (payday.get(Calendar.DAY_OF_MONTH) >= 10) {
+        if (payday.get(Calendar.DAY_OF_MONTH) >= dayOfMonth) {
             payday.add(Calendar.MONTH, 1);
         }
-        payday.set(Calendar.DAY_OF_MONTH, 10);
+        payday.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
         return sdf.format(payday.getTime());
     }
