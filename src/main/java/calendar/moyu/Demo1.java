@@ -36,9 +36,7 @@ public class Demo1 {
                 "距离6点半下班还有:" + getTimeDeffer(now, xiaban3) + "\n" +
                 "距离周六还有:" + getTimeDeffer(now, saturday) + "\n" +
                 "距离周日还有:" + getTimeDeffer(now, sunday) + "\n" +
-                "距离10号发工资还有:" + getDayDeffer(now, getPayday(10)) + "\n" +
-                "距离15号发工资还有:" + getDayDeffer(now, getPayday(15)) + "\n" +
-                "距离20号发工资还有:" + getDayDeffer(now, getPayday(20)) + "\n" +
+                getPaydayPart() +
                 "距离9月15号跑路还有:" + getDayDeffer(now, runDay) + "\n" +
                 "距离中秋节还有:" + getDayDeffer(now, zhongq) + "\n" +
                 "距离国庆节还有:" + getDayDeffer(now, guoq) + "\n" +
@@ -56,6 +54,7 @@ public class Demo1 {
 
     /**
      * 获取时间差
+     *
      * @param time1
      * @param time2
      * @return
@@ -106,6 +105,32 @@ public class Demo1 {
             }
         }
         return result;
+    }
+
+    /**
+     * 获取天数
+     *
+     * @param time1
+     * @param time2
+     * @return
+     */
+    public static Integer getDayDefferInt(String time1, String time2) {
+        long date =0L;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        if (time1 != null && time2 != null && time1.length() != 0 && time2.length() != 0) {
+
+            try {
+                long dt1 = sdf.parse(time1).getTime();
+                long dt2 = sdf.parse(time2).getTime();
+                long dc = Math.abs(dt2 - dt1);
+                long seconds = dc / 1000;
+                date = seconds / (24 * 60 * 60);     //相差的天数
+
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return Integer.parseInt(String.valueOf(date));
     }
 
     /**
@@ -168,6 +193,7 @@ public class Demo1 {
 
     /**
      * 发薪日
+     *
      * @param dayOfMonth
      * @return
      */
@@ -183,4 +209,37 @@ public class Demo1 {
 
         return sdf.format(payday.getTime());
     }
+
+    /**
+     * 发薪日部分
+     * @return
+     */
+    public static String getPaydayPart() {
+        String s = "";
+        SimpleDateFormat sdf_time = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf_month = new SimpleDateFormat("M月dd日");
+        String now = sdf_time.format(new Date());
+        HashMap<String, Integer> map = new HashMap<>();
+
+        map.put(getPayday(10),getDayDefferInt(now,getPayday(10)));
+        map.put(getPayday(15),getDayDefferInt(now,getPayday(15)));
+        map.put(getPayday(20),getDayDefferInt(now,getPayday(20)));
+
+        ArrayList<Map.Entry<String, Integer>> list = new ArrayList<>(map.entrySet());
+
+        Collections.sort(list,(Comparator.comparingInt(Map.Entry::getValue)));
+
+        Iterator<Map.Entry<String, Integer>> iterator = list.iterator();
+
+        while (iterator.hasNext()) {
+            Map.Entry<String, Integer> next = iterator.next();
+            try {
+                s += "距离"+ sdf_month.format(sdf_time.parse(next.getKey()).getTime()) +"发工资还有:" + next.getValue() + "天\n";
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return s;
+    }
+
 }
