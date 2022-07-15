@@ -1,5 +1,7 @@
 package calendar.moyu;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -28,7 +30,8 @@ public class Demo1 {
         String zhongq = "2022-09-10 00:00:00";
         String guoq = "2022-10-01 00:00:00";
         String runDay = "2022-09-15 00:00:00";
-        System.out.println("【摸鱼办】提醒您：" + todays + "好，摸鱼人！工作再累一定不要忘记摸鱼哦！有事没事起身去茶水间，抽烟室，去走廊溜达溜达，别老在工位坐着。钱是老板的,但命是自己的。\n" +
+
+        String content = "【摸鱼办】提醒您：" + todays + "好，摸鱼人！工作再累一定不要忘记摸鱼哦！有事没事起身去茶水间，抽烟室，去走廊溜达溜达，别老在工位坐着。钱是老板的,但命是自己的。\n" +
                 "\n" +
                 "距离5点下班还有:" + getTimeDeffer(now, xiaban) + "\n" +
                 "距离5点半下班还有:" + getTimeDeffer(now, xiaban1) + "\n" +
@@ -48,7 +51,11 @@ public class Demo1 {
                 "\n" +
                 "认认真真上班，这根本就不叫赚钱，那是用劳动换取报酬。只有偷懒，在上班的时候摸鱼划水，你才是从老板手里赚到了钱。\n" +
                 "\n" +
-                "最后，祝愿天下所有摸鱼人，都能愉快的度过每一天!");
+                "最后，祝愿天下所有摸鱼人，都能愉快的度过每一天!";
+
+        System.out.println(content);
+
+        writeOutTxt(content, "E:\\text\\1.doc");
     }
 
 
@@ -115,7 +122,7 @@ public class Demo1 {
      * @return
      */
     public static Integer getDayDefferInt(String time1, String time2) {
-        long date =0L;
+        long date = 0L;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         if (time1 != null && time2 != null && time1.length() != 0 && time2.length() != 0) {
 
@@ -212,6 +219,7 @@ public class Demo1 {
 
     /**
      * 发薪日部分
+     *
      * @return
      */
     public static String getPaydayPart() {
@@ -221,25 +229,50 @@ public class Demo1 {
         String now = sdf_time.format(new Date());
         HashMap<String, Integer> map = new HashMap<>();
 
-        map.put(getPayday(10),getDayDefferInt(now,getPayday(10)));
-        map.put(getPayday(15),getDayDefferInt(now,getPayday(15)));
-        map.put(getPayday(20),getDayDefferInt(now,getPayday(20)));
+        map.put(getPayday(10), getDayDefferInt(now, getPayday(10)));
+        map.put(getPayday(15), getDayDefferInt(now, getPayday(15)));
+        map.put(getPayday(20), getDayDefferInt(now, getPayday(20)));
 
         ArrayList<Map.Entry<String, Integer>> list = new ArrayList<>(map.entrySet());
 
-        Collections.sort(list,(Comparator.comparingInt(Map.Entry::getValue)));
+        Collections.sort(list, (Comparator.comparingInt(Map.Entry::getValue)));
 
         Iterator<Map.Entry<String, Integer>> iterator = list.iterator();
 
         while (iterator.hasNext()) {
             Map.Entry<String, Integer> next = iterator.next();
             try {
-                s += "距离"+ sdf_month.format(sdf_time.parse(next.getKey()).getTime()) +"发工资还有:" + next.getValue() + "天\n";
+                s += "距离" + sdf_month.format(sdf_time.parse(next.getKey()).getTime()) + "发工资还有:" + next.getValue() + "天\n";
             } catch (ParseException e) {
                 e.printStackTrace();
             }
         }
         return s;
+    }
+
+    /**
+     * 输出txt
+     *
+     * @param content
+     * @param path
+     */
+    public static void writeOutTxt(String content, String path) {
+        byte[] contentByte = content.getBytes();
+        if (null != contentByte) {
+            try {
+                File file = new File(path);        //文件路径（路径+文件名）
+                if (!file.exists()) {    //文件不存在则创建文件，先创建目录
+                    File dir = new File(file.getParent());
+                    dir.mkdirs();
+                    file.createNewFile();
+                }
+                FileOutputStream outStream = new FileOutputStream(file);    //文件输出流用于将数据写入文件
+                outStream.write(contentByte);
+                outStream.close();    //关闭文件输出流
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }
